@@ -1,0 +1,81 @@
+{
+  "name": "low-memory-mode",
+  "displayName": "Low Memory Mode",
+  "description": "Cut VS Code's memory use with one command: stop background watching, indexing and auto-start jobs, free memory now, and see what is using it. Turn it off to restore your exact settings.",
+  "version": "0.2.0",
+  "publisher": "yahia-kerroum",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1F2937",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YahiaKerroum/vscode-low-memory-mode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YahiaKerroum/vscode-low-memory-mode/issues"
+  },
+  "homepage": "https://github.com/YahiaKerroum/vscode-low-memory-mode#readme",
+  "keywords": [
+    "memory",
+    "performance",
+    "ram",
+    "low memory",
+    "file watcher",
+    "lightweight",
+    "speed"
+  ],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "lowMemoryMode.toggle",
+        "title": "Low Memory Mode: Toggle"
+      },
+      {
+        "command": "lowMemoryMode.on",
+        "title": "Low Memory Mode: Turn On (Standard)"
+      },
+      {
+        "command": "lowMemoryMode.max",
+        "title": "Low Memory Mode: Turn On (Max)"
+      },
+      {
+        "command": "lowMemoryMode.off",
+        "title": "Low Memory Mode: Turn Off"
+      },
+      {
+        "command": "lowMemoryMode.freeNow",
+        "title": "Low Memory Mode: Free Memory Now"
+      },
+      {
+        "command": "lowMemoryMode.report",
+        "title": "Low Memory Mode: Memory Report"
+      }
+    ],
+    "configuration": {
+      "title": "Low Memory Mode",
+      "properties": {
+        "lowMemoryMode.extraFolders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Extra folder names (e.g. data, outputs) that low memory mode stops watching, searching and indexing, on top of the usual heavy folders (.venv, node_modules, ...)."
+        }
+      }
+    }
+  }
+}
